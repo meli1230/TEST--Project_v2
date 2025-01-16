@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffeb95eb-254a-499e-9f84-3e68956477ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/storage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/appointment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/appointment_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/user_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/user_service_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text_files/but_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text_files/client_requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text_files/specs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text_files/tests_failes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/text_files/todo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/timezone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="ffeb95eb-254a-499e-9f84-3e68956477ed" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -104,11 +84,24 @@
       <updated>1737052492910</updated>
       <workItem from="1737052494051" duration="83000" />
       <workItem from="1737052601266" duration="30000" />
-      <workItem from="1737052649594" duration="512000" />
+      <workItem from="1737052649594" duration="847000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1737053467667</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737053467667</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

@@ -14,6 +14,11 @@
       "user_id": 3,
       "name": "paula",
       "timezone": "America/Los_Angeles"
+    },
+    "4": {
+      "user_id": 4,
+      "name": "naomi",
+      "timezone": "Asia/Shanghai"
     }
   },
   "appointments": {
