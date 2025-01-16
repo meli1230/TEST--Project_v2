@@ -103,25 +103,40 @@ class UserService:
                 elif language == "fr":
                     print(f"ID: {user['user_id']}, Nom: {user['name']}, Fuseau horaire: {user['timezone']}")
 
-    def delete_user(self, language):
+    def delete_user(self, language, appointment_service):
         # List users to help the admin see available users
         self.list_users(language)
         if language == "en":
-            username = input("Enter the name of the user to delete: ")
+            username = input("Enter the name of the user to delete: ").strip()
         elif language == "ro":
-            username = input("Introduceți numele utilizatorului de șters: ")
+            username = input("Introduceți numele utilizatorului de șters: ").strip()
         elif language == "fr":
-            username = input("Entrez le nom de l'utilisateur à supprimer: ")
+            username = input("Entrez le nom de l'utilisateur à supprimer: ").strip()
 
-        # Check if the user exists and delete
-        result = db_delete_user(username)
-        if result:
-            if language == "en":
-                print(f"User {username} deleted successfully.")
-            elif language == "ro":
-                print(f"Utilizatorul {username} a fost șters cu succes.")
-            elif language == "fr":
-                print(f"L'utilisateur {username} a été supprimé avec succès.")
+        # Check if the user exists
+        existing_users = db_list_users()
+        user_to_delete = next((user for user in existing_users if user['name'].lower() == username.lower()), None)
+
+        if user_to_delete:
+            # Delete all appointments related to this user
+            appointment_service.delete_appointments_for_user(user_to_delete['user_id'])
+
+            # Delete the user
+            result = db_delete_user(username)
+            if result:
+                if language == "en":
+                    print(f"User {username} and their appointments were deleted successfully.")
+                elif language == "ro":
+                    print(f"Utilizatorul {username} și programările asociate au fost șterse cu succes.")
+                elif language == "fr":
+                    print(f"L'utilisateur {username} et ses rendez-vous ont été supprimés avec succès.")
+            else:
+                if language == "en":
+                    print(f"An error occurred while deleting user {username}.")
+                elif language == "ro":
+                    print(f"A apărut o eroare la ștergerea utilizatorului {username}.")
+                elif language == "fr":
+                    print(f"Une erreur s'est produite lors de la suppression de l'utilisateur {username}.")
         else:
             if language == "en":
                 print(f"User {username} does not exist.")
@@ -129,3 +144,4 @@ class UserService:
                 print(f"Utilizatorul {username} nu există.")
             elif language == "fr":
                 print(f"L'utilisateur {username} n'existe pas.")
+

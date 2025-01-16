@@ -281,3 +281,13 @@ class AppointmentService:
             elif language == "fr":
                 print("\nOpération interrompue par l'utilisateur. Fermeture en douceur.")
 
+    def delete_appointments_for_user(self, user_id):
+        appointments = db_list_appointments()
+        user_appointments = [appt for appt in appointments if appt['user']['user_id'] == user_id]
+
+        for appt in user_appointments:
+            self.appointments_table.remove(doc_ids=[appt.doc_id])  # Remove appointment from the database
+
+        print(f"All appointments for user ID {user_id} have been deleted.")
+
+

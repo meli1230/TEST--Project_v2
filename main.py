@@ -61,7 +61,7 @@ def main():  # Main function to run the application
         if choice == "1":  # If the choice is 1
             user_service.add_user(language)  # Call the add_user method with the language
         elif choice == "2":  # If the choice is 2
-            user_service.delete_user(language)  # Call the delete_user method with the language
+            user_service.delete_user(language, appointment_service)  # Call the delete_user method with the language
         elif choice == "3":  # If the choice is 3
             user_service.list_users(language)  # Call the list_users method with the language
         elif choice == "4":  # If the choice is 4
