@@ -8,15 +8,19 @@ def select_language():
     print("2. Română")
     print("3. Français")
     while True:
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            return "en"
-        elif choice == "2":
-            return "ro"
-        elif choice == "3":
-            return "fr"
-        else:
-            print("Invalid choice. Please select 1, 2, or 3.")
+        try:
+            choice = input("Enter your choice: ")
+            if choice == "1":
+                return "en"
+            elif choice == "2":
+                return "ro"
+            elif choice == "3":
+                return "fr"
+            else:
+                print("Invalid choice. Please select 1, 2, or 3.")
+        except KeyboardInterrupt:
+            print("\nLanguage selection interrupted. Exiting program.")
+            return None
 
 def main_menu(language):
     if language == "en":
@@ -56,36 +60,44 @@ def main():  # Main function to run the application
     user_service = UserService(users_table)  # Create an instance of UserService
     appointment_service = AppointmentService(appointments_table, user_service)  # Create an instance of AppointmentService with user_service
 
-    while True:  # Start an infinite loop for the main menu
-        choice = main_menu(language)  # Pass the selected language to display the main menu
-        if choice == "1":  # If the choice is 1
-            user_service.add_user(language)  # Call the add_user method with the language
-        elif choice == "2":  # If the choice is 2
-            user_service.delete_user(language)  # Call the delete_user method with the language
-        elif choice == "3":  # If the choice is 3
-            user_service.list_users(language)  # Call the list_users method with the language
-        elif choice == "4":  # If the choice is 4
-            appointment_service.create_appointment(language)  # Call the create_appointment method with the language
-        elif choice == "5":  # If the choice is 5
-            appointment_service.list_appointments(language)
-        elif choice == "6":
-            appointment_service.delete_appointment(language)  # Call the delete_appointment method
-        # Call the list_appointments method with the language
-        elif choice == "7":  # If the choice is 7
-            if language == "en":
-                print("Goodbye!")  # Print a goodbye message
-            elif language == "ro":
-                print("La revedere!")  # Print a goodbye message in Romanian
-            elif language == "fr":
-                print("Au revoir!")  # Print a goodbye message in French
-            break  # Exit the loop and end the program
-        else:  # If the choice is invalid
-            if language == "en":
-                print("Invalid choice. Please try again.")  # Print an error message in English
-            elif language == "ro":
-                print("Opțiune invalidă. Vă rugăm să încercați din nou.")  # Print an error message in Romanian
-            elif language == "fr":
-                print("Choix invalide. Veuillez réessayer.")  # Print an error message in French
+    try:
+        while True:  # Start an infinite loop for the main menu
+            choice = main_menu(language)  # Pass the selected language to display the main menu
+            if choice == "1":  # If the choice is 1
+                user_service.add_user(language)  # Call the add_user method with the language
+            elif choice == "2":  # If the choice is 2
+                user_service.delete_user(language, appointment_service)  # Call the delete_user method with the language
+            elif choice == "3":  # If the choice is 3
+                user_service.list_users(language)  # Call the list_users method with the language
+            elif choice == "4":  # If the choice is 4
+                appointment_service.create_appointment(language)  # Call the create_appointment method with the language
+            elif choice == "5":  # If the choice is 5
+                appointment_service.list_appointments(language)
+            elif choice == "6":
+                appointment_service.delete_appointment(language)  # Call the delete_appointment method
+            # Call the list_appointments method with the language
+            elif choice == "7":  # If the choice is 7
+                if language == "en":
+                    print("Goodbye!")  # Print a goodbye message
+                elif language == "ro":
+                    print("La revedere!")  # Print a goodbye message in Romanian
+                elif language == "fr":
+                    print("Au revoir!")  # Print a goodbye message in French
+                break  # Exit the loop and end the program
+            else:  # If the choice is invalid
+                if language == "en":
+                    print("Invalid choice. Please try again.")  # Print an error message in English
+                elif language == "ro":
+                    print("Opțiune invalidă. Vă rugăm să încercați din nou.")  # Print an error message in Romanian
+                elif language == "fr":
+                    print("Choix invalide. Veuillez réessayer.")  # Print an error message in French
+    except KeyboardInterrupt:
+        if language == "en":
+            print("\nProgram interrupted by user. Exiting gracefully.")
+        elif language == "ro":
+            print("\nProgramul a fost întrerupt de utilizator. Ieșire în siguranță.")
+        elif language == "fr":
+            print("\nProgramme interrompu par l'utilisateur. Fermeture en douceur.")
 
 
 if __name__ == "__main__":  #run the program only if the script is executed directly
