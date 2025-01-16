@@ -15,49 +15,102 @@ class AppointmentService:
         self.user_service = user_service  # Initialize with a user service for user-related operations
 
     # Method to create a new appointment
-    def create_appointment(self):
+    def create_appointment(self, language):
         try:
-            users = db_list_users()  # Fetch users directly from the database
+            users = db_list_users()
             if not users:
-                print("No users found.")
+                if language == "en":
+                    print("No users found.")
+                elif language == "ro":
+                    print("Nu au fost găsiți utilizatori.")
+                elif language == "fr":
+                    print("Aucun utilisateur trouvé.")
                 return
 
             # List all users
             for user in users:
-                print(f"ID: {user['user_id']}, Name: {user['name']}, Timezone: {user['timezone']}")
+                if language == "en":
+                    print(f"ID: {user['user_id']}, Name: {user['name']}, Timezone: {user['timezone']}")
+                elif language == "ro":
+                    print(f"ID: {user['user_id']}, Nume: {user['name']}, Fus orar: {user['timezone']}")
+                elif language == "fr":
+                    print(f"ID: {user['user_id']}, Nom: {user['name']}, Fuseau horaire: {user['timezone']}")
 
             # Ask for user name
             while True:
-                user_name = input("Enter user name: ").strip()
-                # Validate input using regex (letters and spaces only)
+                if language == "en":
+                    user_name = input("Enter user name: ").strip()
+                elif language == "ro":
+                    user_name = input("Introduceți numele utilizatorului: ").strip()
+                elif language == "fr":
+                    user_name = input("Entrez le nom de l'utilisateur: ").strip()
+
                 if not re.match(r'^[a-zA-Z\u00C0-\u017F\s]+$', user_name):
-                    print("Invalid name. Please use only letters and spaces.")
+                    if language == "en":
+                        print("Invalid name. Please use only letters and spaces.")
+                    elif language == "ro":
+                        print("Nume invalid. Vă rugăm să folosiți doar litere și spații.")
+                    elif language == "fr":
+                        print("Nom invalide. Veuillez utiliser uniquement des lettres et des espaces.")
                     continue
 
                 user = next((u for u in users if u['name'].lower() == user_name.lower()), None)
                 if not user:
-                    print("User not found. Please try again.")
+                    if language == "en":
+                        print("User not found. Please try again.")
+                    elif language == "ro":
+                        print("Utilizatorul nu a fost găsit. Vă rugăm să încercați din nou.")
+                    elif language == "fr":
+                        print("Utilisateur introuvable. Veuillez réessayer.")
                     continue
                 break
 
-            print("Available Consultants:")
+            if language == "en":
+                print("Available Consultants:")
+            elif language == "ro":
+                print("Consultanți disponibili:")
+            elif language == "fr":
+                print("Consultants disponibles:")
+
             for idx, consultant in enumerate(consultants, 1):
                 print(f"{idx}. {consultant}")
 
             while True:
                 try:
-                    consultant_idx = int(input("Choose consultant: ")) - 1
+                    if language == "en":
+                        consultant_idx = int(input("Choose consultant: ")) - 1
+                    elif language == "ro":
+                        consultant_idx = int(input("Alegeți consultantul: ")) - 1
+                    elif language == "fr":
+                        consultant_idx = int(input("Choisissez un consultant: ")) - 1
+
                     if consultant_idx not in range(len(consultants)):
-                        raise ValueError("Invalid consultant index.")
+                        raise ValueError()
                     consultant = consultants[consultant_idx]
                     break
-                except ValueError as e:
-                    print(e)
+                except ValueError:
+                    if language == "en":
+                        print("Invalid consultant index.")
+                    elif language == "ro":
+                        print("Index consultant invalid.")
+                    elif language == "fr":
+                        print("Index du consultant invalide.")
 
-            print("Available slots:")
+            if language == "en":
+                print("Available slots:")
+            elif language == "ro":
+                print("Sloturi disponibile:")
+            elif language == "fr":
+                print("Créneaux disponibles:")
+
             slots = available_slots.get(consultant, [])
             if not slots:
-                print(f"No slots available for {consultant}.")
+                if language == "en":
+                    print(f"No slots available for {consultant}.")
+                elif language == "ro":
+                    print(f"Nu sunt sloturi disponibile pentru {consultant}.")
+                elif language == "fr":
+                    print(f"Aucun créneau disponible pour {consultant}.")
                 return
 
             while True:
@@ -65,13 +118,24 @@ class AppointmentService:
                     for idx, slot in enumerate(slots, 1):
                         print(f"{idx}. {slot}")
 
-                    slot_idx = int(input("Choose a slot: ")) - 1
+                    if language == "en":
+                        slot_idx = int(input("Choose a slot: ")) - 1
+                    elif language == "ro":
+                        slot_idx = int(input("Alegeți un slot: ")) - 1
+                    elif language == "fr":
+                        slot_idx = int(input("Choisissez un créneau: ")) - 1
+
                     if slot_idx not in range(len(slots)):
-                        raise ValueError("Invalid slot index.")
+                        raise ValueError()
                     chosen_slot = slots.pop(slot_idx)
                     break
-                except ValueError as e:
-                    print(e)
+                except ValueError:
+                    if language == "en":
+                        print("Invalid slot index.")
+                    elif language == "ro":
+                        print("Index slot invalid.")
+                    elif language == "fr":
+                        print("Index du créneau invalide.")
 
             customer_time = convert_to_timezone(chosen_slot, "UTC", user['timezone'])
             mentor_time = convert_to_timezone(chosen_slot, "UTC", "Europe/Bucharest")
@@ -84,26 +148,59 @@ class AppointmentService:
                 'timezone': user['timezone']
             }, consultant, customer_time, mentor_time)
 
-            print("Appointment created successfully.")
-            print(f"Appointment time in your timezone: {customer_time}")
-            print(f"Appointment time in Bucharest timezone: {mentor_time}")
+            if language == "en":
+                print("Appointment created successfully.")
+                print(f"Appointment time in your timezone: {customer_time}")
+                print(f"Appointment time in Bucharest timezone: {mentor_time}")
+            elif language == "ro":
+                print("Programarea a fost creată cu succes.")
+                print(f"Oră programare în fusul dvs. orar: {customer_time}")
+                print(f"Oră programare în fusul orar București: {mentor_time}")
+            elif language == "fr":
+                print("Rendez-vous créé avec succès.")
+                print(f"Heure du rendez-vous dans votre fuseau horaire: {customer_time}")
+                print(f"Heure du rendez-vous dans le fuseau horaire de Bucarest: {mentor_time}")
 
         except KeyboardInterrupt:
-            print("\nProgram interrupted by user. Exiting gracefully.")
+            if language == "en":
+                print("\nProgram interrupted by user. Exiting gracefully.")
+            elif language == "ro":
+                print("\nProgramul a fost întrerupt de utilizator. Ieșire în siguranță.")
+            elif language == "fr":
+                print("\nProgramme interrompu par l'utilisateur. Fermeture en douceur.")
 
     # Method to list all scheduled appointments
-    def list_appointments(self):
+    def list_appointments(self, language):
         try:
             appointments = db_list_appointments()  # Fetch appointments from the database
             if not appointments:
-                print("No appointments scheduled.")
+                if language == "en":
+                    print("No appointments scheduled.")
+                elif language == "ro":
+                    print("Nu sunt programări programate.")
+                elif language == "fr":
+                    print("Aucun rendez-vous planifié.")
                 return
 
             for appt in appointments:
-                print(f"User: {appt['user']['name']}, Consultant: {appt['consultant']}")
-                print(f"  Time in Customer's Timezone: {appt['customer_time']}")
-                print(f"  Time in Mentor's Timezone: {appt['mentor_time']}")
+                if language == "en":
+                    print(f"User: {appt['user']['name']}, Consultant: {appt['consultant']}")
+                    print(f"  Time in Customer's Timezone: {appt['customer_time']}")
+                    print(f"  Time in Mentor's Timezone: {appt['mentor_time']}")
+                elif language == "ro":
+                    print(f"Utilizator: {appt['user']['name']}, Consultant: {appt['consultant']}")
+                    print(f"  Ora în fusul orar al clientului: {appt['customer_time']}")
+                    print(f"  Ora în fusul orar al mentorului: {appt['mentor_time']}")
+                elif language == "fr":
+                    print(f"Utilisateur: {appt['user']['name']}, Consultant: {appt['consultant']}")
+                    print(f"  Heure dans le fuseau horaire du client: {appt['customer_time']}")
+                    print(f"  Heure dans le fuseau horaire du mentor: {appt['mentor_time']}")
                 print("-" * 40)
 
         except KeyboardInterrupt:
-            print("\nProgram interrupted by user. Exiting gracefully.")
+            if language == "en":
+                print("\nProgram interrupted by user. Exiting gracefully.")
+            elif language == "ro":
+                print("\nProgramul a fost întrerupt de utilizator. Ieșire în siguranță.")
+            elif language == "fr":
+                print("\nProgramme interrompu par l'utilisateur. Fermeture en douceur.")
