@@ -204,3 +204,80 @@ class AppointmentService:
                 print("\nProgramul a fost întrerupt de utilizator. Ieșire în siguranță.")
             elif language == "fr":
                 print("\nProgramme interrompu par l'utilisateur. Fermeture en douceur.")
+
+    # Method to delete an appointment
+    def delete_appointment(self, language):
+        try:
+            # Fetch all appointments from the database
+            appointments = db_list_appointments()
+            if not appointments:
+                if language == "en":
+                    print("No appointments found to delete.")
+                elif language == "ro":
+                    print("Nu există programări de șters.")
+                elif language == "fr":
+                    print("Aucun rendez-vous à supprimer.")
+                return
+
+            # List all appointments
+            if language == "en":
+                print("Scheduled Appointments:")
+            elif language == "ro":
+                print("Programări programate:")
+            elif language == "fr":
+                print("Rendez-vous planifiés:")
+
+            for idx, appt in enumerate(appointments, 1):
+                if language == "en":
+                    print(f"{idx}. User: {appt['user']['name']}, Consultant: {appt['consultant']}")
+                    print(f"   Time in Customer's Timezone: {appt['customer_time']}")
+                    print(f"   Time in Mentor's Timezone: {appt['mentor_time']}")
+                elif language == "ro":
+                    print(f"{idx}. Utilizator: {appt['user']['name']}, Consultant: {appt['consultant']}")
+                    print(f"   Ora în fusul orar al clientului: {appt['customer_time']}")
+                    print(f"   Ora în fusul orar al mentorului: {appt['mentor_time']}")
+                elif language == "fr":
+                    print(f"{idx}. Utilisateur: {appt['user']['name']}, Consultant: {appt['consultant']}")
+                    print(f"   Heure dans le fuseau horaire du client: {appt['customer_time']}")
+                    print(f"   Heure dans le fuseau horaire du mentor: {appt['mentor_time']}")
+
+            # Prompt user to select an appointment to delete
+            while True:
+                try:
+                    if language == "en":
+                        choice = int(input("Enter the number of the appointment to delete: ")) - 1
+                    elif language == "ro":
+                        choice = int(input("Introduceți numărul programării de șters: ")) - 1
+                    elif language == "fr":
+                        choice = int(input("Entrez le numéro du rendez-vous à supprimer : ")) - 1
+
+                    if choice < 0 or choice >= len(appointments):
+                        raise ValueError("Invalid choice.")
+                    break
+                except ValueError:
+                    if language == "en":
+                        print("Invalid choice. Please try again.")
+                    elif language == "ro":
+                        print("Opțiune invalidă. Vă rugăm să încercați din nou.")
+                    elif language == "fr":
+                        print("Choix invalide. Veuillez réessayer.")
+
+            # Remove the selected appointment
+            selected_appointment = appointments[choice]
+            appointments_table.remove(doc_ids=[selected_appointment.doc_id])  # Delete from the database
+
+            if language == "en":
+                print("Appointment deleted successfully.")
+            elif language == "ro":
+                print("Programarea a fost ștearsă cu succes.")
+            elif language == "fr":
+                print("Le rendez-vous a été supprimé avec succès.")
+
+        except KeyboardInterrupt:
+            if language == "en":
+                print("\nOperation interrupted by user. Exiting gracefully.")
+            elif language == "ro":
+                print("\nOperațiunea a fost întreruptă de utilizator. Ieșire în siguranță.")
+            elif language == "fr":
+                print("\nOpération interrompue par l'utilisateur. Fermeture en douceur.")
+
