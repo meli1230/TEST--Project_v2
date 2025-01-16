@@ -26,7 +26,8 @@ def main_menu(language):
         print("3. List Users")
         print("4. Make an Appointment")
         print("5. View Appointments")
-        print("6. Exit")
+        print("6. Delete Appointment")
+        print("7. Exit")
         return input("Choose an option: ")
     elif language == "ro":
         print("\n--- Aplicație de Programare ---")
@@ -35,7 +36,8 @@ def main_menu(language):
         print("3. Listează Utilizatori")
         print("4. Creează o Programare")
         print("5. Vezi Programări")
-        print("6. Ieșire")
+        print("6. Șterge Programare")
+        print("7. Ieșire")
         return input("Alegeți o opțiune: ")
     elif language == "fr":
         print("\n--- Application de Planification ---")
@@ -44,8 +46,10 @@ def main_menu(language):
         print("3. Lister les Utilisateurs")
         print("4. Planifier un Rendez-vous")
         print("5. Voir les Rendez-vous")
-        print("6. Quitter")
+        print("6. Supprimer un Rendez-vous")
+        print("7. Quitter")
         return input("Choisissez une option: ")
+
 
 def main():  # Main function to run the application
     language = select_language()  # Ask the user to select a language
@@ -63,8 +67,11 @@ def main():  # Main function to run the application
         elif choice == "4":  # If the choice is 4
             appointment_service.create_appointment(language)  # Call the create_appointment method with the language
         elif choice == "5":  # If the choice is 5
-            appointment_service.list_appointments(language)  # Call the list_appointments method with the language
-        elif choice == "6":  # If the choice is 6
+            appointment_service.list_appointments(language)
+        elif choice == "6":
+            appointment_service.delete_appointment(language)  # Call the delete_appointment method
+        # Call the list_appointments method with the language
+        elif choice == "7":  # If the choice is 7
             if language == "en":
                 print("Goodbye!")  # Print a goodbye message
             elif language == "ro":
