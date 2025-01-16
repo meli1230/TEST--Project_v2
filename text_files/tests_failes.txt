@@ -1,0 +1,109 @@
+C:\Users\melis\AppData\Local\Microsoft\WindowsApps\python3.12.exe "C:/Users/melis/AppData/Local/Programs/PyCharm Professional/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py" --path D:\Comp_Sci\FSEGA\Y3_S1\TEST\TEST--Project\tests\user_service_test.py
+Testing started at 9:03 AM ...
+Launching unittests with arguments python -m unittest D:\Comp_Sci\FSEGA\Y3_S1\TEST\TEST--Project\tests\user_service_test.py in D:\Comp_Sci\FSEGA\Y3_S1\TEST\TEST--Project\tests
+
+Available Time Zones:
+1. UTC
+2. Pacific/Midway
+3. America/Adak
+4. America/Anchorage
+5. America/Los_Angeles
+6. America/Denver
+7. America/Chicago
+8. America/New_York
+9. America/Caracas
+10. America/Sao_Paulo
+11. Atlantic/Azores
+12. Europe/London
+13. Europe/Paris
+14. Europe/Istanbul
+15. Europe/Moscow
+16. Asia/Dubai
+17. Asia/Karachi
+18. Asia/Kolkata
+19. Asia/Bangkok
+20. Asia/Shanghai
+21. Asia/Tokyo
+22. Australia/Sydney
+23. Pacific/Noumea
+24. Pacific/Auckland
+User 123Invalid added successfully with timezone UTC.
+
+
+0 != 1
+
+Expected :1
+Actual   :0
+<Click to see difference>
+
+Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2288.0_x64__qbz5n2kfra8p0\Lib\unittest\mock.py", line 1396, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Comp_Sci\FSEGA\Y3_S1\TEST\TEST--Project\tests\user_service_test.py", line 27, in test_add_user_invalid_name
+    self.assertEqual(len(users), 0)  #assert that no user was added
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+Available Time Zones:
+1. UTC
+2. Pacific/Midway
+3. America/Adak
+4. America/Anchorage
+5. America/Los_Angeles
+6. America/Denver
+7. America/Chicago
+8. America/New_York
+9. America/Caracas
+10. America/Sao_Paulo
+11. Atlantic/Azores
+12. Europe/London
+13. Europe/Paris
+14. Europe/Istanbul
+15. Europe/Moscow
+16. Asia/Dubai
+17. Asia/Karachi
+18. Asia/Kolkata
+19. Asia/Bangkok
+20. Asia/Shanghai
+21. Asia/Tokyo
+22. Australia/Sydney
+23. Pacific/Noumea
+24. Pacific/Auckland
+Invalid input: Invalid choice.. Defaulting to UTC.
+User Test User added successfully with timezone UTC.
+Available Time Zones:
+1. UTC
+2. Pacific/Midway
+3. America/Adak
+4. America/Anchorage
+5. America/Los_Angeles
+6. America/Denver
+7. America/Chicago
+8. America/New_York
+9. America/Caracas
+10. America/Sao_Paulo
+11. Atlantic/Azores
+12. Europe/London
+13. Europe/Paris
+14. Europe/Istanbul
+15. Europe/Moscow
+16. Asia/Dubai
+17. Asia/Karachi
+18. Asia/Kolkata
+19. Asia/Bangkok
+20. Asia/Shanghai
+21. Asia/Tokyo
+22. Australia/Sydney
+23. Pacific/Noumea
+24. Pacific/Auckland
+User Test User added successfully with timezone UTC.
+Name: Test User, Timezone: UTC
+User Test User deleted successfully.
+
+
+Ran 7 tests in 0.016s
+
+FAILED (failures=1)
+
+Process finished with exit code 1

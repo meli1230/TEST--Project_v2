@@ -1,0 +1,63 @@
+Bug report
+
+---
+
+### 1- Descriere Generală
+
+Acest document detaliază bugurile identificate în timpul testării aplicației de programare a întâlnirilor. Problemele includ erori la validarea input-urilor, funcționalități incomplete sau defectuoase și gestionarea necorespunzătoare a excepțiilor. De asemenea, se prezintă pașii pentru a reproduce bugurile și soluțiile sugerate pentru remediere.
+
+---
+
+### 2- Buguri Identificate
+
+#### 2-1 Numele Utilizatorilor Nu Sunt Validate Corect
+- **Descriere**: Utilizatorii cu nume care conțin caractere speciale sau numere sunt acceptați, deși ar trebui să fie respinși.
+- **Pași pentru Reproducere**:
+  1. Rulează testul `test_add_user_invalid_name`.
+  2. Introdu un nume invalid, cum ar fi "123Invalid".
+- **Rezultat Așteptat**: Niciun utilizator nu ar trebui adăugat.
+- **Rezultat Observat**: Utilizatorul este adăugat cu succes.
+- **Impact**: Integritatea datelor este compromisă.
+- **Soluție Sugerată**: Actualizează validarea numelui în `add_user` pentru a verifica corect caracterele.
+
+#### 2-2 Numele Utilizatorilor Nu Sunt Unice
+- **Descriere**: Aplicația permite adăugarea mai multor utilizatori cu același nume.
+- **Pași pentru Reproducere**:
+  1. Adaugă un utilizator cu numele "Test User".
+  2. Adaugă un alt utilizator cu același nume.
+- **Rezultat Așteptat**: Aplicația ar trebui să refuze utilizatorii duplicat.
+- **Rezultat Observat**: Ambii utilizatori sunt adăugați cu succes.
+- **Impact**: Dificultăți în gestionarea și identificarea utilizatorilor.
+- **Soluție Sugerată**: Adaugă verificarea unicității numelor în metoda `add_user`.
+
+#### 2-3 Programul Nu Gestionează Corect Input-urile Invalide
+- **Descriere**: Introducerea unor valori invalide cauzează blocarea testării.
+- **Pași pentru Reproducere**:
+  1. Rulează testul `test_add_multiple_users`.
+  2. Introdu un input invalid pentru fusul orar sau nume.
+- **Rezultat Așteptat**: Aplicația ar trebui să gestioneze eroarea și să revină la starea anterioară.
+- **Rezultat Observat**: Testarea se oprește.
+- **Impact**: Stabilitatea aplicației este afectată.
+- **Soluție Sugerată**: Implementează gestionarea tuturor excepțiilor în `add_user` și alte funcții critice.
+
+#### 2-4 Probleme cu Stergerea Utilizatorilor
+- **Descriere**: Unele teste confirmă ștergerea utilizatorilor, dar nu verifică integritatea datelor rămase.
+- **Pași pentru Reproducere**:
+  1. Adaugă mai mulți utilizatori.
+  2. Șterge unul dintre utilizatori.
+  3. Verifică lista utilizatorilor.
+- **Rezultat Așteptat**: Lista rămasă să reflecte doar utilizatorii care nu au fost șterși.
+- **Rezultat Observat**: Nicio verificare nu este implementată automat în testele relevante.
+- **Impact**: Posibile probleme de integritate a datelor.
+- **Soluție Sugerată**: Adaugă verificări în testele `test_delete_user` pentru a valida starea listei utilizatorilor.
+
+#### 2-5 Lipsa Mesajelor de Eroare Informative
+- **Descriere**: Utilizatorii nu primesc mesaje clare despre erorile apărute.
+- **Pași pentru Reproducere**:
+  1. Rulează aplicația și introduce un input invalid pentru fusul orar.
+- **Rezultat Așteptat**: Un mesaj clar care indică problema input-ului.
+- **Rezultat Observat**: Mesaje generice precum "Invalid input".
+- **Impact**: Experiența utilizatorului este redusă.
+- **Soluție Sugerată**: Personalizează mesajele de eroare pentru a include detalii relevante.
+
+---

@@ -1,0 +1,49 @@
+1- Prezentare Generală
+
+Beneficiarul dorește o aplicație care să permită utilizatorilor programarea de întâlniri cu consultanți specifici, luând în considerare fusurile orare.
+Aplicația trebuie să fie intuitivă, fiabilă și să ofere funcționalități avansate de gestionare a utilizatorilor și a rezervărilor.
+
+---
+
+2- Cerințe Funcționale
+
+2-1 Gestionarea Utilizatorilor
+
+- Aplicația trebuie să permită adăugarea de utilizatori cu nume și fusuri orare specifice.
+- Fiecare utilizator trebuie să aibă un ID unic generat automat.
+- Numele utilizatorilor trebuie validate astfel încât să conțină doar caractere alfabetice și spații.
+- Utilizatorii cu același nume nu trebuie adăugați de mai multe ori.
+- Trebuie oferită posibilitatea de ștergere a utilizatorilor existenți.
+- Aplicația va afișa o listă a utilizatorilor existenți, incluzând detalii precum numele și fusul orar.
+
+2-2 Gestionarea Intâlnirilor
+
+- Utilizatorii trebuie să poată programa întâlniri cu consultanți specifici.
+- Trebuie afișate intervalele orare disponibile pentru fiecare consultant.
+- Sistemul trebuie să gestioneze rezervările și să elimine automat intervalele rezervate.
+- Orele programărilor trebuie afișate într-un format adecvat pentru ambele fusuri orare (al utilizatorului și al consultantului).
+- Aplicația trebuie să permită listarea tuturor întâlnirilor programate.
+
+2-3 Gestionarea Fusurilor Orare
+
+- Sistemul trebuie să includă o listă de fusuri orare predefinite.
+- Trebuie implementată o funcție de conversie automata a timpului între fusuri orare.
+- Fusurile orare invalide sau incomplete trebuie gestionate într-un mod grațios.
+
+---
+
+3- Cerințe Non-funcționale
+
+3-1 Performanță
+
+- Sistemul trebuie să proceseze rezervările într-un interval de timp minim, sub 1 secundă.
+
+3-2 Ușurință de Utilizare
+
+- Interfața utilizatorului trebuie să fie simplă și intuitivă.
+- Toate mesajele afișate utilizatorului trebuie să fie clare și informative.
+
+3-3 Stabilitate
+
+- Aplicația nu trebuie să crape indiferent de inputurile primite.
+- Trebuie implementate mecanisme pentru gestionarea tuturor excepțiilor.

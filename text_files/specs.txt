@@ -1,0 +1,129 @@
+Document de Specificatii pentru Aplicatia de Programare a Intalnirilor
+
+1- Prezentare Generala
+
+Aplicatia de Programare a Intalnirilor faciliteaza utilizatorii in programarea intalnirilor cu consultanti predefiniti, luand in considerare mai multe fusuri orare. Ofera functionalitati pentru gestionarea utilizatorilor, rezervarea intalnirilor si conversia fusurilor orare. Acest document detaliaza componentele cheie si functionalitatile sistemului.
+
+2- Module si Functionalitati
+
+2-1 Gestionarea Utilizatorilor
+
+- Adaugare Utilizator
+  - Utilizatorii pot introduce numele si selecta fusul orar dintr-o lista predefinita
+  - Validarea asigura ca numele contine doar caractere alfabetice si spatii
+  - Fiecarui utilizator i se genereaza un ID unic
+- Stergere Utilizator
+  - Permite stergerea unui utilizator existent dupa nume
+  - Afiseaza o lista cu utilizatorii pentru selectie usoara
+- Listare Utilizatori
+  - Afiseaza toti utilizatorii cu ID-ul, numele si fusul orar
+
+2-2 Gestionarea Intalnirilor
+
+- Creare Intalnire
+  - Utilizatorii pot alege un consultant si un interval orar disponibil
+  - Intervalele orare sunt gestionate dinamic si eliminate dupa rezervare
+  - Conversiile de fus orar asigura afisarea corecta a timpului atat pentru client, cat si pentru consultant
+- Listare Intalniri
+  - Afiseaza toate intalnirile programate, cu detalii despre utilizatori si consultanti, precum si orele in fusurile orare ale clientului si consultantului
+
+2-3 Gestionarea Fusurilor Orare
+
+- O lista predefinita de fusuri orare este disponibila
+- Utilitarul de conversie a fusurilor orare asigura programarea corecta intre regiuni diferite
+
+3- Componente Cheie
+
+3-1 Nivelul de Date
+
+- Stocare
+  - Utilizatorii, intalnirile, consultantii si intervalele disponibile sunt stocate sub forma de liste
+  - Exemplu
+    - users = [] lista de obiecte utilizatori
+    - appointments = [] lista de obiecte intalniri
+
+3-2 Modele
+
+- Model Utilizator
+  - Atribute user_id, name, timezone
+  - Exemplu User 1 John Doe UTC
+- Model Intalnire
+  - Atribute user, consultant, customer_time, mentor_time
+  - Exemplu Appointment User Consultant A 2024-12-14 10-00 2024-12-14 12-00
+
+3-3 Servicii
+
+- UserService
+  - Gestioneaza operatiunile legate de utilizatori adaugare, stergere si listare utilizatori
+- AppointmentService
+  - Gestioneaza operatiunile legate de intalniri creare si listare intalniri
+  - Utilizeaza convert_to_timezone pentru ajustari de timp
+
+3-4 Utilitare
+
+- Utilitar Fus Orar
+  - Converte datele si ora intre fusuri orare
+  - Exemplu convert_to_timezone 2024-12-14 10-00 UTC Europe-London
+
+4- Fluxul Aplicatiei
+
+4-1 Meniu Principal
+
+1- Adaugare Utilizator
+2- Stergere Utilizator
+3- Listare Utilizatori
+4- Creare Intalnire
+5- Vizualizare Intalniri
+6- Iesire
+
+4-2 Scenariu Exemplu
+
+1- Utilizatorul se adauga in sistem
+   - Nume John Doe
+   - Fus Orar Europe-London
+2- Utilizatorul programeaza o intalnire
+   - Consultant Consultant A
+   - Interval 2024-12-14 10-00 UTC
+3- Intalnirea este creata
+   - Ora Clientului 2024-12-14 10-00 Europe-London
+   - Ora Consultantului 2024-12-14 12-00 Europe-Bucharest
+
+5- Validare si Gestionarea Erorilor
+
+- Input Utilizator
+  - Numele sunt validate pentru caractere speciale sau cifre
+  - Se selecteaza UTC implicit daca fusul orar este invalid
+- Rezervare Intalniri
+  - Se asigura disponibilitatea intervalului orar inainte de rezervare
+  - Se gestioneaza cu gratie selectiile invalide de consultanti sau intervale
+
+6- Date Predefinite
+
+- Consultanti
+  - Consultant A Consultant B Consultant C
+- Intervale Disponibile
+  - Intervale specifice consultantilor cu ore predefinite
+- Fusuri Orare
+  - Include principalele fusuri orare la nivel global
+
+7- Imbunatatiri Viitoare
+- Integrarea unei baze de date pentru stocare persistenta
+- Adaugarea mai multor consultant, cu nume (nu consA, consB, consC)
+
+8- Referinte
+
+- Biblioteci Python
+  - datetime
+  - zoneinfo
+- Fisiere ale Aplicatiei
+  - storage.py
+  - appointment.py
+  - user.py
+  - appointment_service.py
+  - user_service.py
+  - timezone.py
+  - main.py
+
+
+
+#scriem ca e in mod text, scriem meniul
