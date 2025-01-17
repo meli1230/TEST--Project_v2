@@ -51,40 +51,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests in AutomatizareConsultantTest.py.executor": "Run",
-    "Python tests.Python tests in AutomatizareDublicatNameTest.py.executor": "Run",
-    "Python tests.Python tests in AutomatizareTest.py.executor": "Run",
-    "Python tests.Python tests in AuxiliarListUserTest.py.executor": "Run",
-    "Python tests.Python tests in AuxiliarTimezonesTest.py.executor": "Run",
-    "Python tests.Python tests in CommonSetup.py.executor": "Run",
-    "Python tests.Python tests in TestAddUser.py.executor": "Run",
-    "Python tests.Python tests in TestDeleteConsultant.py.executor": "Run",
-    "Python tests.Python tests in TestMemoryOverload.py.executor": "Run",
-    "Python tests.Python tests in TestUserOrder.py.executor": "Run",
-    "Python tests.Python tests in TestareDelete.py.executor": "Run",
-    "Python tests.Python tests in TestareListare.py.executor": "Run",
-    "Python tests.Python tests in TestareProgrămariDuplicate.py.executor": "Run",
-    "Python tests.Python tests in TestareUserIncomplet.py.executor": "Run",
-    "Python tests.Python tests in test_unicode_user.py.executor": "Run",
-    "Python tests.Python tests in tests.executor": "Run",
-    "Python tests.Python tests in user_service_test.py.executor": "Run",
-    "Python.TestareAppointment.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "test__adi",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Comp_Sci/FSEGA/Y3_S1/TEST/TEST--Project_v2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests in AutomatizareConsultantTest.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in AutomatizareDublicatNameTest.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in AutomatizareTest.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in AuxiliarListUserTest.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in AuxiliarTimezonesTest.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in CommonSetup.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestAddUser.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestDeleteConsultant.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestMemoryOverload.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestUserOrder.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestareDelete.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestareListare.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestareProgrămariDuplicate.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in TestareUserIncomplet.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_unicode_user.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in tests.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in user_service_test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.TestareAppointment.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;test__adi&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Comp_Sci/FSEGA/Y3_S1/TEST/TEST--Project_v2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Comp_Sci\FSEGA\Y3_S1\TEST\TEST--Project_v2\text_files" />
