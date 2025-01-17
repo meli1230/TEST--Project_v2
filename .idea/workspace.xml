@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffeb95eb-254a-499e-9f84-3e68956477ed" name="Changes" comment="tests working">
+    <list default="true" id="ffeb95eb-254a-499e-9f84-3e68956477ed" name="Changes" comment="final version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestareDelete.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
     "Python.TestareAppointment.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "naomi__test",
+    "git-widget-placeholder": "test__adi",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Comp_Sci/FSEGA/Y3_S1/TEST/TEST--Project_v2",
     "node.js.detected.package.eslint": "true",
@@ -175,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in AutomatizareConsultantTest.py" />
-        <item itemvalue="Python tests.Python tests in AutomatizareDublicatNameTest.py" />
         <item itemvalue="Python tests.Python tests in user_service_test.py" />
         <item itemvalue="Python tests.Python tests in TestMemoryOverload.py" />
         <item itemvalue="Python tests.Python tests in TestDeleteConsultant.py" />
+        <item itemvalue="Python tests.Python tests in AutomatizareDublicatNameTest.py" />
+        <item itemvalue="Python tests.Python tests in AutomatizareConsultantTest.py" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737098722746</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="final version">
+      <option name="closed" value="true" />
+      <created>1737113214751</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737113214751</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +278,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="tests working" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests working" />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TEST__Project_v2$TestareAppointment.coverage" NAME="TestareAppointment Coverage Results" MODIFIED="1737098633423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
