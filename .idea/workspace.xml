@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffeb95eb-254a-499e-9f84-3e68956477ed" name="Changes" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AutomatizareConsultantTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AutomatizareConsultantTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AutomatizareDublicatNameTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AutomatizareDublicatNameTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AutomatizareTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AutomatizareTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AuxiliarListUserTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AuxiliarListUserTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AuxiliarTimezonesTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AuxiliarTimezonesTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_unicode_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_unicode_user.py" afterDir="false" />
-    </list>
+    <list default="true" id="ffeb95eb-254a-499e-9f84-3e68956477ed" name="Changes" comment="tests working" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,19 +195,47 @@
       <option name="project" value="LOCAL" />
       <updated>1737053467667</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="tests working">
+      <option name="closed" value="true" />
+      <created>1737092627326</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737092627326</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tests working">
+      <option name="closed" value="true" />
+      <created>1737092729121</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737092729121</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="tests working" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests working" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TEST__Project_v2$main.coverage" NAME="main Coverage Results" MODIFIED="1737091374480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TEST__Project_v2$AutomatizareDublicatNameTest.coverage" NAME="AutomatizareDublicatNameTest Coverage Results" MODIFIED="1737071488748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/TEST__Project_v2$.coverage" NAME=" Coverage Results" MODIFIED="1737092337303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/TEST__Project_v2$.coverage" NAME=" Coverage Results" MODIFIED="1737092613340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
