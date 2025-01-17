@@ -3,22 +3,26 @@ from data.storage import TIMEZONES
 
 class TestTimezones(unittest.TestCase):
     """
-    Testează integritatea listei globale `TIMEZONES`, care conține fusurile orare disponibile
-    pentru utilizatori. Verificările includ:
-    - Lista nu ar trebui să fie goală.
-    - Lista ar trebui să conțină doar valori unice.
+    Tests the integrity of the global `TIMEZONES` list, which contains available time zones
+    for users. Verifications include:
+    - The list should not be empty.
+    - The list should contain only unique values.
     """
 
     def test_timezones_not_empty(self):
         """
-        Verifică dacă lista `TIMEZONES` conține cel puțin un element.
-        - Acest test asigură că există fusuri orare definite pentru utilizatori.
+        Verifies that the `TIMEZONES` list contains at least one element.
+        - Ensures that there are defined time zones available for users.
         """
-        self.assertTrue(len(TIMEZONES) > 0, "Lista TIMEZONES nu ar trebui să fie goală.")
+        self.assertTrue(len(TIMEZONES) > 0, "The TIMEZONES list should not be empty.")
 
     def test_timezones_are_unique(self):
         """
-        Verifică dacă toate valorile din lista `TIMEZONES` sunt unice.
-        - Previne duplicarea fusurilor orare, care ar putea duce la confuzie sau erori.
+        Verifies that all values in the `TIMEZONES` list are unique.
+        - Prevents duplication of time zones, which could lead to confusion or errors.
         """
-        self.assertEqual(len(TIMEZONES), len(set(TIMEZONES)), "Lista TIMEZONES ar trebui să conțină doar valori unice.")
+        self.assertEqual(len(TIMEZONES), len(set(TIMEZONES)), "The TIMEZONES list should contain only unique values.")
+
+
+if __name__ == "__main__":
+    unittest.main()

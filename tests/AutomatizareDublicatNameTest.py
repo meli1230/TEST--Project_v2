@@ -1,26 +1,25 @@
 import unittest
 from unittest.mock import patch
-from data.storage import users
-from models.user import User
+from Database.database import users_table  # Import users_table for database assertions
 from services.user_service import UserService
 
 
 class TestUserServiceAutomation(unittest.TestCase):
     def setUp(self):
-        """Curăță lista de utilizatori înainte de fiecare test."""
-        self.user_service = UserService()
-        users.clear()
+        """Clear the users table in the database before each test."""
+        self.user_service = UserService(users_table)  # Initialize with users_table
+        users_table.truncate()  # Clear the database table for users
 
-    @patch("builtins.input", side_effect=["John Doe", "1"])  # Primul utilizator
+    @patch("builtins.input", side_effect=["John Doe", "1"])  # Input for the first user
     def test_add_duplicate_user(self, mock_input):
-        """Test automatizat care eșuează pentru adăugarea unui utilizator duplicat."""
-        # Adăugăm primul utilizator
+        """Automated test that fails when trying to add a duplicate user."""
+        # Add the first user
         self.user_service.add_user()
-        self.assertEqual(len(users), 1, "Ar trebui să fie un utilizator în listă.")
+        self.assertEqual(len(users_table.all()), 1, "There should be one user in the database.")
 
-        # Încercăm să adăugăm același utilizator
+        # Attempt to add the same user again
         with patch("builtins.input", side_effect=["John Doe", "1"]):
             self.user_service.add_user()
 
-        # Verificăm că utilizatorul duplicat nu a fost adăugat
-        self.assertEqual(len(users), 1, "Utilizatorii cu nume duplicate nu ar trebui adăugați.")
+        # Verify that the duplicate user was not added
+        self.assertEqual(len(users_table.all()), 1, "Duplicate users should not be added.")

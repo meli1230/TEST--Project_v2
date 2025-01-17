@@ -1,38 +1,44 @@
 import unittest
-from data.storage import users
-from models.user import User
+from unittest.mock import patch
+from io import StringIO
+from Database.database import users_table  # Import users_table for database operations
 from services.user_service import UserService
+
 
 class TestListUsersFormat(unittest.TestCase):
     """
-    Testează metoda `list_users` din clasa `UserService` pentru a verifica dacă
-    afișează corect detaliile utilizatorilor într-un format specific.
+    Tests the `list_users` method from the `UserService` class to ensure it
+    displays user details in a specific format.
     """
 
     def setUp(self):
         """
-        Configurare inițială pentru test:
-        - Creează o instanță a clasei `UserService`.
-        - Curăță lista de utilizatori (`users`) pentru a începe cu un mediu curat.
+        Initial setup for the test:
+        - Creates an instance of the `UserService` class.
+        - Clears the users table (`users_table`) to start with a clean slate.
         """
-        self.user_service = UserService()
-        users.clear()
+        self.user_service = UserService(users_table)
+        users_table.truncate()  # Clear the users table in the database
 
     def test_list_users_format(self):
         """
-        Testează dacă metoda `list_users` afișează detaliile utilizatorilor în formatul corect.
-        - Creează un utilizator fictiv.
-        - Adaugă utilizatorul în lista globală `users`.
-        - Capturează log-urile generate de metoda `list_users`.
-        - Verifică dacă mesajul logat conține informațiile corecte despre utilizator.
+        Tests if the `list_users` method displays user details in the correct format.
+        - Creates a mock user.
+        - Adds the user to the database.
+        - Captures the output of the `list_users` method.
+        - Verifies the output contains the correct user details.
         """
-        # Creează un utilizator și îl adaugă în lista globală `users`
-        user = User(1, "John Doe", "UTC")
-        users.append(user)
+        # Add a user directly to the database
+        users_table.insert({"user_id": 1, "name": "John Doe", "timezone": "UTC"})
 
-        # Capturează log-urile generate de metoda `list_users`
-        with self.assertLogs() as log:
+        # Capture the output of `list_users`
+        with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
             self.user_service.list_users()
+            output = mock_stdout.getvalue().strip()
 
-        # Verifică dacă formatul corect al mesajului este prezent în log-uri
-        self.assertIn("ID: 1, Name: John Doe, Timezone: UTC", log.output[0])
+        # Verify if the correct message format is present in the output
+        self.assertIn("ID: 1, Name: John Doe, Timezone: UTC", output)
+
+
+if __name__ == "__main__":
+    unittest.main()
