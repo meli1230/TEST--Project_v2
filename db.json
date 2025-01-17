@@ -26,6 +26,16 @@
       "consultant": "Georgescu Cristian",
       "customer_time": "2025-02-15 15:00",
       "mentor_time": "2025-02-15 17:00"
+    },
+    "2": {
+      "user": {
+        "user_id": 1,
+        "name": "melisa",
+        "timezone": "America/Denver"
+      },
+      "consultant": "Popa Andrei",
+      "customer_time": "2025-02-14 14:00",
+      "mentor_time": "2025-02-14 16:00"
     }
   }
 }
